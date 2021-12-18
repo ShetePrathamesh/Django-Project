@@ -1,0 +1,81 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<style>
+     h5{
+        background-color:rgba(181, 143, 180, 0.88);;
+        font-size:150%;
+        margin: 40px;
+        padding: 10px;
+        color: black;
+        text-align: center; 
+        border-radius: 10px;   
+    }
+
+    .updateform{
+        position: relative; top:-40px; left:20%;
+        width: 60%;
+    }
+
+    #b1{
+        position: relative; top: -20px; left:25%;
+    }
+    #b2{
+        position: relative; top: -20px; left:50%;
+    }
+    
+
+</style>
+
+<div class="container">
+
+    <h5>Update Records</h5>
+    
+    <form action="/update/{{medicine.Id}}" method="POST">
+    <div class="updateform">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for=""><b>  <b> ID :</b></label>
+            <input type="text" name="Id" value="{{medicine.Id}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> M_Name :</b></label>
+            <input type="text" name="M_Name" value="{{medicine.M_Name}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> M_Type :</b></label>
+            <input type="text" name="M_Type" value="{{medicine.M_Type}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> Mnf_Date :</b></label>
+            <input type="text" name="Mnf_Date" value="{{medicine.Mnf_Date}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> Exp_Date :</b></label>
+            <input type="text" name="Exp_Date" value="{{medicine.Exp_Date}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> MRP :</b></label>
+            <input type="text" name="MRP" value="{{medicine.MRP}}" class="form-control form-control-sm">
+        </div>
+
+        <div class="form-group">
+            <label for=""><b> Stock :</b></label>
+            <input type="text" name="Stock" value="{{medicine.Stock}}" class="form-control form-control-sm">
+        </div>
+    </div>
+
+        <div class="form-group">
+            <button id="b1" class="btn btn-primary" type="submit">Update Records</button>
+            <a id="b2" href="{% url 'show' %}" class="btn btn-primary">Show Details</a>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
